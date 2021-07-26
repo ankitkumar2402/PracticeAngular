@@ -1,0 +1,23 @@
+<p>first-page works!</p>
+
+<!-- routerLink = '/next' is used when there is no parameter passed to url parameter  -->
+<button class='firstClass' [routerLink] = "['/next', 5]">Hello</button>
+<button class='firstClass'(click)='onFilter($event)'>filter</button>
+<div>this will contain value:{{outputValue}}</div>
+<ng-container *ngIf = 'bShow'>
+    <div *ngFor = 'let values of aValues'>
+        <div>{{values | lowercase | addValueFormatter}}</div>
+    </div>
+    <sm-nested-component [valueInput] = 'valueInput1' (valueOutputNotify) = 'onOutputValueClicked($event)'></sm-nested-component>
+</ng-container>
+<div>
+  <!-- Reactive form uses formGroup and formBuilder -->
+  <form [formGroup] = "reactiveForm" (ngSubmit) = "onSubmit(reactiveForm)">
+    <div>
+      <label>Name:</label>
+      <input formControlName= "name">
+    </div>
+    <button type="submit">Send</button>
+  </form>
+</div>
+
